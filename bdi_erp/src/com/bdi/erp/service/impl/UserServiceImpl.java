@@ -1,25 +1,20 @@
 package com.bdi.erp.service.impl;
 
-import java.util.Enumeration;
+import java.util.List;
+import java.util.Map;
 
-import org.apache.catalina.startup.UserConfig;
-import org.apache.catalina.startup.UserDatabase;
-
+import com.bdi.erp.dao.UserDAO;
+import com.bdi.erp.dao.impl.UserDAOImpl;
 import com.bdi.erp.service.UserService;
 
 public class UserServiceImpl implements UserService{
-
+	private UserDAO udao = new UserDAOImpl();
 	@Override
 	public boolean login(String id, String pwd) {
-		if(id==null || pwd ==null) {
-			return false;
-		}
-		if(id.equals("rlaehdgur45")) {
-			if(pwd.equals("123456")) {
-				return true;
-			}
-		}
-		return false;
+		return udao.login(id, pwd);
 	}
-
+	public List<Map<String,String>> getUserList(){
+		return udao.getUserList();
+	}
 }
+
