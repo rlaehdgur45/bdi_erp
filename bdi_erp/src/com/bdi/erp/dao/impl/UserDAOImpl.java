@@ -25,7 +25,7 @@ public class UserDAOImpl implements UserDAO{
 		try {
 			PreparedStatement ps = con.prepareStatement(sql);
 			ps.setString(1, id);
-			ps.setString(2, pwd);
+			ps.setString(2, pwd); 
 			ResultSet rs= ps.executeQuery();
 			rs.next();
 			int cnt = rs.getInt(1);

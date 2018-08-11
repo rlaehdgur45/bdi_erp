@@ -29,7 +29,7 @@ public class UserServlet extends HttpServlet {
 		
 		if(cmd.equals("login")) {
 			String id = request.getParameter("id");
-			String pwd = request.getParameter("pwd");
+			String pwd = request.getParameter("pwd"); 
 			boolean isLogin = us.login(id, pwd);
 			if(isLogin) {
 				out.println("로그인 성공!!");

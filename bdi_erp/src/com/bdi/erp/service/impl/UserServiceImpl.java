@@ -19,7 +19,7 @@ public class UserServiceImpl implements UserService{
 
 	@Override
 	public List<Map<String, String>> getUserList(String key, String val) {
-		return udao.getUserList(key, val);
+		return udao.getUserList(key, val); 
 	}
 }
 
