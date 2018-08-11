@@ -17,7 +17,7 @@ List<Map<String,String>> userList =
 			 <option value="uiId">아이디</option>
 			 <option value="uiEmail">이메일</option>
 			</select>
-			<input type = "test" name="val">
+			<input type = "test" name="val"> 
 			<button>검색</button>
 		</form>
 	</div>
