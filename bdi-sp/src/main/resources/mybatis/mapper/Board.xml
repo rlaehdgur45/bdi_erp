@@ -1,0 +1,50 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper
+  PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
+  "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="SQL.Board">
+	<select id="selectBoardList" resultType="bi" parameterType="bi">
+	select * from board_info
+	<where>
+		<if test="binum!=null">and binum=#{binum}</if>
+		<if test="bititle!=null">and bititle=#{bititle}</if>
+		<if test="bitext!=null">and bitext=#{bitext}</if>
+		<if test="bifile!=null">bifile=#{bifile}</if>
+		<if test="bicredat!=null">and bicredat=#{bicredat}</if>
+		<if test="bimoddat!=null">and bimoddat=#{bimoddat}</if>
+		<if test="bicnt!=null">and bicnt=#{bicnt}</if>
+		<if test="biactive!=null">and biactive=#{biactive}</if>
+		<if test="uinum!=null">and uinum=#{uinum}</if>
+	</where>
+	</select>
+	<select id="selectBoard" resultType="bi" parameterType="bi">
+	select * from board_info
+	where binum=#{binum}
+	</select>
+	
+	<insert id="insertBoard" parameterType="bi">
+	insert into board(bititle,bitext,bifile,bicredat,bimoddat,bicnt,biactive,uinum)
+	values(#{bititle},#{bitext},#{bifile}#{bicredat},#{bimoddat},#{bicnt},#{biactive},#{uinum})
+	</insert>
+	
+	<update id="updateBoard" parameterType="bi">
+	update board
+	<set>
+		<if test="binum!=null">binum=#{binum}</if>
+		<if test="bititle!=null">bititle=#{bititle}</if>
+		<if test="bitext!=null">and bitext=#{bitext}</if>
+		<if test="bifile!=null">bifile=#{bifile}</if>
+		<if test="bicredat!=null">bicredat=#{bicredat}</if>
+		<if test="bimoddat!=null">bimoddat=#{bimoddat}</if>
+		<if test="bicnt!=null">bicnt=#{bicnt}</if>
+		<if test="biactive!=null">biactive=#{biactive}</if>
+		<if test="uinum!=null">uinum=#{uinum}</if>
+	</set>
+	where binum=#{binum}
+	</update>
+	
+	<delete id="deleteBoard" parameterType="int">
+	delete from board_info
+	where binum=#{binum}
+	</delete>
+</mapper>
